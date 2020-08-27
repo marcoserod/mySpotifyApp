@@ -1,0 +1,6 @@
+@import '../src/components/navbar/Navbar.css';
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../src/assets/fonts/CircularStdMedium.ttf');
+}
