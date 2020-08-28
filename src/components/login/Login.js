@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CLIENT_ID = 'dddb5b9c3b8b4660a537f71880b695bf';
-const REDIRECT_URI = 'https://spotisearch-marcoserod.netlify.app/';
+const REDIRECT_URI = 'https://spotisearch-marcoserod.netlify.app/auth';
 
 const Login = () => {
   return (
@@ -17,7 +17,7 @@ const Login = () => {
       <div>
         <button
           onClick={() =>
-            (window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=http://localhost:3000/auth&scope=user-read-private%20user-read-email&response_type=token&state=123&show_dialog=true`)
+            (window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=user-read-private%20user-read-email&response_type=token&state=123&show_dialog=true`)
           }
         >
           Login with Spotify
