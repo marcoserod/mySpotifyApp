@@ -1,0 +1,13 @@
+div.profile-avatar {
+  height: 3rem;
+  margin-left: auto;
+}
+
+div.profile-avatar img {
+  border-radius: 50%;
+}
+
+div.profile-avatar svg {
+  font-size: 3rem;
+  color: white;
+}

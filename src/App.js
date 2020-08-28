@@ -7,6 +7,7 @@ import Login from './components/login/Login';
 import Auth from './components/auth/Auth';
 import { AuthProvider } from './contexts/Auth.context';
 import Home from './components/home/Home';
+import PrivateRoute from './helpers/PrivateRoute';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/auth" component={Auth} />
-          <Route exact path="/home" component={Home} />
+          <PrivateRoute exact path="/home" component={Home} />
         </Switch>
       </Router>
     </AuthProvider>
