@@ -4,6 +4,7 @@ const storeToken = (setToken, history) => {
   const token = new URL(window.location.href).hash.split('=')[1].split('&')[0];
   console.log(token);
   setToken(token);
+  localStorage.setItem('token', token);
   history.replace('/home');
 };
 

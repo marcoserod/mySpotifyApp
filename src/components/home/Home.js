@@ -6,7 +6,9 @@ const Home = (props) => {
   const [userData, setUserData] = useState(null);
   const { token } = useContext(AuthContext);
 
-  useEffect(() => fetchUserData(token, setUserData), [fetchUserData]);
+  useEffect(() => {
+    fetchUserData(token, setUserData);
+  }, [fetchUserData]);
 
   return userData ? (
     <section>
