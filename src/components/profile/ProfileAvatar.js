@@ -10,7 +10,7 @@ const ProfileAvatar = (props) => {
 
   useEffect(() => {
     token && fetchUserData(token, setUserData);
-  }, [fetchUserData]);
+  }, [userData, token]);
 
   const shimmer = <FontAwesomeIcon icon={faUserCircle} />;
 
