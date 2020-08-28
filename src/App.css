@@ -1,4 +1,5 @@
 @import '../src/components/navbar/Navbar.css';
+@import '../src/components/login/Login.css';
 
 @font-face {
   font-family: 'Circular';

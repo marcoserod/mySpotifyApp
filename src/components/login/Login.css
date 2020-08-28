@@ -1,0 +1,30 @@
+section.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Circular';
+  color: white;
+  height: calc(100vh - 4rem);
+  background: rgb(141, 178, 229);
+  background: linear-gradient(
+    318deg,
+    rgba(141, 178, 229, 1) 17%,
+    rgba(186, 123, 184, 1) 79%
+  );
+}
+
+section.login-page div.container.welcome {
+  height: calc(40vh + 4rem);
+  margin: 1rem 0rem;
+}
+
+section.login-page button {
+  flex-grow: 0.1;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 19px 56px 21px;
+  background-color: #1db954;
+  border: none;
+  color: inherit;
+  text-transform: uppercase;
+}
