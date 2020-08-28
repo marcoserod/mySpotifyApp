@@ -17,7 +17,7 @@ const Login = () => {
       <div>
         <button
           onClick={() =>
-            (window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123&show_dialog=true`)
+            (window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=http://localhost:3000/auth&scope=user-read-private%20user-read-email&response_type=token&state=123&show_dialog=true`)
           }
         >
           Login with Spotify
