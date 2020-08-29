@@ -23,7 +23,7 @@ const Home = (props) => {
       </div>
     </section>
   ) : (
-    <div>loading</div>
+    <section className="login-page justify-content-center">loading</section>
   );
 };
 

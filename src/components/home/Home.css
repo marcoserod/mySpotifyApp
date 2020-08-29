@@ -1,17 +1,22 @@
 section.home-page {
   background-color: #121212;
-  height: calc(100vh - 4rem);
+  min-height: calc(100vh - 4rem);
   font-family: 'Circular';
   color: white;
 }
 
 section.home-page h1 {
+  font-size: 2rem;
   padding: 2rem 0rem;
   font-family: 'Circular';
   color: white;
 }
 
 section.home-page h1 div#app-name {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #1db954;
+}
+
+section.home-page h4 {
+  font-size: 1.1rem;
 }
