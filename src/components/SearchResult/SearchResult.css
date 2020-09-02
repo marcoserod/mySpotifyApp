@@ -1,0 +1,12 @@
+section.artist-search {
+  background-color: #121212;
+  min-height: calc(100vh - 4rem);
+  color: white;
+  font-family: 'Circular';
+}
+
+section.artist-search h1 {
+  font-size: 3rem;
+  color: #1db954;
+  padding: 2rem 0rem;
+}
