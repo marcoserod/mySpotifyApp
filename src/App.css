@@ -2,6 +2,7 @@
 @import '../src/components/login/Login.css';
 @import '../src/components/profile/ProfileAvatar.css';
 @import '../src/components/home/Home.css';
+@import '../src/components/search/Search.css';
 
 @font-face {
   font-family: 'Circular';

@@ -1,16 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { fetchUserData } from '../../services/data';
-import { AuthContext } from '../../contexts/Auth.context';
+import React from 'react';
+import Search from '../search/Search';
 
 const Home = (props) => {
-  const [userData, setUserData] = useState(null);
-  const { token } = useContext(AuthContext);
-
-  useEffect(() => {
-    fetchUserData(token, setUserData);
-  }, [fetchUserData]);
-
-  return userData ? (
+  return (
     <section className="home-page container-fluid">
       <div className="container">
         <h1>
@@ -20,10 +12,9 @@ const Home = (props) => {
           Search your favorite songs over spotify, just enter an artist's name
           in the following search box and enjoy!
         </h4>
+        <Search />
       </div>
     </section>
-  ) : (
-    <section className="login-page justify-content-center">loading</section>
   );
 };
 

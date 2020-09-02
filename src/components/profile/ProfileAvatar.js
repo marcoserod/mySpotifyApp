@@ -6,11 +6,13 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ProfileAvatar = (props) => {
   const [userData, setUserData] = useState(null);
-  const { token } = useContext(AuthContext);
+  const { token, setToken } = useContext(AuthContext);
 
   useEffect(() => {
-    token && fetchUserData(token, setUserData);
-  }, [userData, token]);
+    if (token !== '') {
+      fetchUserData(token, setUserData, setToken);
+    }
+  }, [token]);
 
   const shimmer = <FontAwesomeIcon icon={faUserCircle} />;
 

@@ -8,16 +8,22 @@ const storeToken = (setToken, history) => {
   history.replace('/home');
 };
 
-const fetchUserData = async (token, setUserData) => {
-  let resp = await axios.get('https://api.spotify.com/v1/me', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  try {
-    let data = resp.data;
-    setUserData(data);
-  } catch (err) {
-    console.log(err.message);
-  }
-};
+async function fetchUserData(token, setUserData, setToken) {
+  await axios
+    .get('https://api.spotify.com/v1/me', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((resp) => {
+      setUserData(resp.data);
+      return resp.data;
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        alert('Your session has expired');
+        localStorage.setItem('token', '');
+        setToken('');
+      }
+    });
+}
 
 export { storeToken, fetchUserData };
