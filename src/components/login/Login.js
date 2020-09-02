@@ -1,8 +1,10 @@
 import React from 'react';
 
 const CLIENT_ID = 'dddb5b9c3b8b4660a537f71880b695bf';
-const REDIRECT_URI = 'https://spotisearch-marcoserod.netlify.app/auth';
+const REDIRECT_URI_PROD = 'https://spotisearch-marcoserod.netlify.app/auth';
 const REDIRECT_URI_DEV = 'http://localhost:3000/auth';
+const REDIRECT_URI =
+  process.env.NODE_ENV === 'development' ? REDIRECT_URI_DEV : REDIRECT_URI_PROD;
 
 const Login = () => {
   return (
