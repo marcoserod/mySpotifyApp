@@ -1,7 +1,12 @@
 import React from 'react';
 import 'bootstrap';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/login/Login';
 import Auth from './components/auth/Auth';
@@ -9,6 +14,7 @@ import { AuthProvider } from './contexts/Auth.context';
 import Home from './components/home/Home';
 import PrivateRoute from './helpers/PrivateRoute';
 import SearchResult from './components/SearchResult/SearchResult';
+import Breadcrumbs from './helpers/Breadcrumb';
 
 const App = () => {
   return (

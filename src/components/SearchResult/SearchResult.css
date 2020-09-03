@@ -8,5 +8,20 @@ section.artist-search {
 section.artist-search h1 {
   font-size: 3rem;
   color: #1db954;
-  padding: 2rem 0rem;
+  padding: 2rem 0rem 0rem 0rem;
+  margin: 0rem;
+}
+section.artist-search div.results {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiBreadcrumbs-separator {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  section.artist-search div.results {
+    justify-content: center;
+  }
 }

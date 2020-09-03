@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from '../search/Search';
+import { useHistory } from 'react-router-dom';
 
 const Home = (props) => {
   return (

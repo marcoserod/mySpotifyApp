@@ -4,6 +4,7 @@
 @import '../src/components/home/Home.css';
 @import '../src/components/search/Search.css';
 @import '../src/components/SearchResult/SearchResult.css';
+@import '../src/components/SearchResult/ArtistCard.css';
 
 @font-face {
   font-family: 'Circular';
