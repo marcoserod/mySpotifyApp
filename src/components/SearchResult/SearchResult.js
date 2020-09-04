@@ -17,6 +17,7 @@ const SearchResult = (props) => {
     fetchArtists(artist, setResults, token, setToken);
   }, [artist]);
 
+  document.title = 'Spotisearch-ish - Search';
   return (
     <section className="container-fluid artist-search">
       <div className="container">

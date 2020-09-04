@@ -20,6 +20,10 @@ section.artist-search div.results {
   color: white;
 }
 
+.MuiBreadcrumbs-ol {
+  border-bottom: 1px solid #eaeaea50;
+}
+
 @media screen and (max-width: 600px) {
   section.artist-search div.results {
     justify-content: center;

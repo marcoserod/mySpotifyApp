@@ -9,7 +9,7 @@ const Search = (props) => {
 
   function handleSubmit(e, artistSearch) {
     const location = {
-      pathname: '/search',
+      pathname: '/artists',
       search: `?q=${artistSearch}`,
     };
     e.preventDefault();
