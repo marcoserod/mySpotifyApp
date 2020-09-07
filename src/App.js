@@ -14,6 +14,7 @@ import { AuthProvider } from './contexts/Auth.context';
 import Home from './components/home/Home';
 import PrivateRoute from './helpers/PrivateRoute';
 import SearchResult from './components/SearchResult/SearchResult';
+import Artist from './components/Artist/Artist';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route exact path="/auth" component={Auth} />
           <PrivateRoute exact path="/home" component={Home} />
           <PrivateRoute exact path="/artists" component={SearchResult} />
+          <PrivateRoute exact path="/artists/:id" component={Artist} />
         </Switch>
       </Router>
     </AuthProvider>

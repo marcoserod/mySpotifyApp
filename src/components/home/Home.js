@@ -3,6 +3,7 @@ import Search from '../search/Search';
 import { useHistory } from 'react-router-dom';
 
 const Home = (props) => {
+  document.title = 'Spotisearch-ish';
   return (
     <section className="home-page container-fluid">
       <div className="container">

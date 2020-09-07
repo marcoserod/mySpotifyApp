@@ -43,7 +43,52 @@ async function fetchArtists(artist, setResults, token, setToken) {
         localStorage.setItem('token', '');
         setToken('');
       }
+      console.log(err);
     });
 }
 
-export { storeToken, fetchUserData, fetchArtists };
+async function fetchArtistByID(id, setArtist, token, setToken) {
+  await axios
+    .get(`https://api.spotify.com/v1/artists/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((resp) => {
+      setArtist(resp.data);
+      return resp.data;
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        alert('Your session has expired');
+        localStorage.setItem('token', '');
+        setToken('');
+      }
+      console.log(err);
+    });
+}
+
+async function fetchAlbumsByArtistID(id, setAlbums, token, setToken) {
+  await axios
+    .get(`https://api.spotify.com/v1/artists/${id}/albums`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((resp) => {
+      setAlbums(resp.data);
+      return resp.data;
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        alert('Your session has expired');
+        localStorage.setItem('token', '');
+        setToken('');
+      }
+      console.log(err);
+    });
+}
+
+export {
+  storeToken,
+  fetchUserData,
+  fetchArtists,
+  fetchArtistByID,
+  fetchAlbumsByArtistID,
+};

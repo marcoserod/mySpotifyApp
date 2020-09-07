@@ -14,7 +14,7 @@ const SearchResult = (props) => {
   const artist = queryString.parse(window.location.search).q;
 
   useEffect(() => {
-    fetchArtists(artist, setResults, token, setToken);
+    artist && fetchArtists(artist, setResults, token, setToken);
   }, [artist]);
 
   document.title = 'Spotisearch-ish - Search';
@@ -22,7 +22,12 @@ const SearchResult = (props) => {
     <section className="container-fluid artist-search">
       <div className="container">
         <h1>Artists</h1>
-        <p>You are currently searching: "{artist}"</p>
+        <p>
+          You are currently searching:
+          {artist
+            ? `"${artist}"`
+            : ` Nothing, go ahead and search something below ⤵`}
+        </p>
         <Search />
         <Breadcrumbs />
         <div className="results d-flex row">
