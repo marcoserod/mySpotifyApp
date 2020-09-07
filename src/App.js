@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import 'bootstrap';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory,
+  Redirect,
 } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/login/Login';
@@ -17,12 +17,15 @@ import SearchResult from './components/SearchResult/SearchResult';
 import Artist from './components/Artist/Artist';
 
 const App = () => {
+  const token = localStorage.getItem('token');
   return (
     <AuthProvider>
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/">
+            {token ? <Redirect to="/home" /> : <Login />}
+          </Route>
           <Route exact path="/auth" component={Auth} />
           <PrivateRoute exact path="/home" component={Home} />
           <PrivateRoute exact path="/artists" component={SearchResult} />
