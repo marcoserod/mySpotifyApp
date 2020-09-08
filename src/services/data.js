@@ -10,6 +10,13 @@ const storeToken = (setToken, history) => {
   history.replace('/home');
 };
 
+// axios.interceptors.response.use((resp) => {
+//   if (resp.status === 401) {
+//     alert('explota todoooooo');
+//   }
+//   return resp.status;
+// });
+
 async function fetchUserData(token, setUserData, setToken) {
   await axios
     .get('https://api.spotify.com/v1/me', {
@@ -17,7 +24,7 @@ async function fetchUserData(token, setUserData, setToken) {
     })
     .then((resp) => {
       setUserData(resp.data);
-      localStorage.setItem('user', JSON.stringify(resp.data));
+      localStorage.setItem('user', JSON.stringify(resp.data, null));
       return resp.data;
     })
     .catch((err) => {
@@ -78,9 +85,9 @@ async function fetchAlbumsByArtistID(id, country, setAlbums, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        alert('Your session has expired');
         localStorage.setItem('token', '');
         setToken('');
+        alert('Your session has expired');
       }
       console.log(err);
     });
