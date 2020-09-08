@@ -1,6 +1,7 @@
 section.artist-search {
   background-color: #121212;
   min-height: calc(100vh - 4rem);
+  max-height: 100%;
   color: white;
   font-family: 'Circular';
 }
@@ -13,6 +14,8 @@ section.artist-search h1 {
 }
 section.artist-search div.results {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
 }
 

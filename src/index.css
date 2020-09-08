@@ -1,10 +1,8 @@
 html {
   box-sizing: border-box;
-  height: 100%;
 }
 
 body {
-  height: 100%;
   margin: 0;
   font-family: 'Circular';
   -webkit-font-smoothing: antialiased;

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const Search = (props) => {
   const [artistSearch, setArtistSearch] = useState('');
   const history = useHistory();
+  const location = useLocation();
 
   function handleSubmit(e, artistSearch) {
     const location = {
@@ -26,7 +27,11 @@ const Search = (props) => {
       </span>
       <input
         value={artistSearch}
-        placeholder="Type the name of your favorite artist"
+        placeholder={
+          location.pathname.includes('/artists/')
+            ? 'Search for another artist'
+            : 'Type the name of your favorite artist'
+        }
         onChange={(e) => setArtistSearch(e.target.value)}
       ></input>
     </form>

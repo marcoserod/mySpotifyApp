@@ -11,6 +11,9 @@ const AlbumCard = (props) => {
         <p>
           <small>{i.release_date.split('-')[0]}</small>
         </p>
+        <p>
+          <small>{i.total_tracks} tracks</small>
+        </p>
       </div>
     </div>
   );

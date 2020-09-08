@@ -1,10 +1,10 @@
 form.artist-search {
-  margin-top: 1rem;
   background-color: white;
   border-radius: 2rem;
   height: 3rem;
   display: flex;
   align-items: center;
+  min-width: fit-content;
 }
 
 form.artist-search span {
@@ -20,4 +20,14 @@ form.artist-search input {
   background: transparent;
   border: none;
   min-width: calc(100% - 5rem);
+  padding-right: 1rem;
+}
+
+nav div form.artist-search {
+  height: 2.5rem;
+  align-self: center;
+}
+
+nav div form.artist-search::placeholder {
+  font-family: 'Circular';
 }

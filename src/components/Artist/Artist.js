@@ -12,10 +12,12 @@ const Artist = (props) => {
   const [artist, setArtist] = useState(null);
   const [albums, setAlbums] = useState(null);
   const { token, setToken } = useContext(AuthContext);
+  const { userData } = useContext(AuthContext);
 
   useEffect(() => {
-    fetchArtistByID(id, setArtist, token, setToken);
-    fetchAlbumsByArtistID(id, setAlbums, token, setToken);
+    token && fetchArtistByID(id, setArtist, token, setToken);
+    token &&
+      fetchAlbumsByArtistID(id, userData.country, setAlbums, token, setToken);
   }, []);
 
   if (artist) {

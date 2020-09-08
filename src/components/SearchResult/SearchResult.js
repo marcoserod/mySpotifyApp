@@ -26,14 +26,13 @@ const SearchResult = (props) => {
           You are currently searching:
           {artist
             ? `"${artist}"`
-            : ` Nothing, go ahead and search something below ⤵`}
+            : ` Nothing, go ahead and search something below ⬇`}
         </p>
         <Search />
         <Breadcrumbs />
-        <div className="results d-flex row">
-          {results
-            ? results.artists.items.map((i) => <ArtistCard key={i.id} i={i} />)
-            : null}
+        <div className="results">
+          {results &&
+            results.artists.items.map((i) => <ArtistCard key={i.id} i={i} />)}
         </div>
       </div>
     </section>

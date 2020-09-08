@@ -17,6 +17,7 @@ async function fetchUserData(token, setUserData, setToken) {
     })
     .then((resp) => {
       setUserData(resp.data);
+      localStorage.setItem('user', JSON.stringify(resp.data));
       return resp.data;
     })
     .catch((err) => {
@@ -66,9 +67,9 @@ async function fetchArtistByID(id, setArtist, token, setToken) {
     });
 }
 
-async function fetchAlbumsByArtistID(id, setAlbums, token, setToken) {
+async function fetchAlbumsByArtistID(id, country, setAlbums, token, setToken) {
   await axios
-    .get(`https://api.spotify.com/v1/artists/${id}/albums`, {
+    .get(`https://api.spotify.com/v1/artists/${id}/albums?market=${country}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((resp) => {

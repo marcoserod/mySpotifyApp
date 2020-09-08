@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ProfileAvatar = (props) => {
-  const [userData, setUserData] = useState(null);
+  const { userData, setUserData } = useContext(AuthContext);
   const { token, setToken } = useContext(AuthContext);
 
   useEffect(() => {
