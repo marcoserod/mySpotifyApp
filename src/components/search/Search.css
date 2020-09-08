@@ -26,8 +26,15 @@ form.artist-search input {
 nav div form.artist-search {
   height: 2.5rem;
   align-self: center;
+  margin-left: 1rem;
 }
 
 nav div form.artist-search::placeholder {
   font-family: 'Circular';
+}
+
+@media screen and (max-width: 576px) {
+  nav div form.artist-search {
+    margin: 1rem 0rem;
+  }
 }
