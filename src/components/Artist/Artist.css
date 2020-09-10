@@ -7,12 +7,13 @@ section.artist-page {
 }
 
 section.artist-page div.d-flex {
-  max-height: 176px;
+  min-height: 176px;
   padding: 2rem 0rem 0rem;
 }
 section.artist-page div.left {
   max-width: 144px;
   max-height: 144px;
+  overflow: hidden;
 }
 
 section.artist-page div.next {
@@ -34,11 +35,20 @@ div.album-card {
   background-color: #282828;
   width: 48%;
   margin: 1rem 0rem;
-  display: flex;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 }
 
+div.album-card a {
+  display: flex;
+  height: 100%;
+}
+div.album-card a,
+div.album-card a:focus,
+div.album-card a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 div.album-card div.album-info {
   margin: 1rem;
 }
@@ -56,5 +66,8 @@ div.album-card img {
 
   div.album-card img {
     align-self: stretch;
+  }
+  section.artist-page div.next h1 {
+    font-size: 1rem;
   }
 }
