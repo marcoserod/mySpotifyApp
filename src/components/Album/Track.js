@@ -13,7 +13,6 @@ const Track = (props) => {
 
   const handleFavorite = (e, id) => {
     e.preventDefault();
-    console.log(favorites);
     if (favorite) {
       let newfavorites = favorites.filter((i) => i !== id);
       setFavorites(newfavorites);
