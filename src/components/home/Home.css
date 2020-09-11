@@ -22,9 +22,61 @@ section.home-page h4 {
   margin-bottom: 3rem;
 }
 
-section.home-page div.favorites {
+section.home-page h2.favorites {
+  color: #1db954;
   padding: 2rem 0rem;
 }
-section.home-page div.favorites h2 {
+
+section.home-page div.favorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section.home-page div.favorites div.track-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  min-height: 266px;
+  width: 190px;
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #282828;
+}
+
+section.home-page div.favorites div.track-card img {
+  border-radius: 0.25rem;
+  min-height: 150px;
+  width: 150px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+section.home-page div.favorites div.track-card p.track-name {
+  align-self: flex-start;
+  margin: 1rem 0rem 0rem;
+}
+
+section.home-page div.favorites div.track-card div.artists a,
+section.home-page div.favorites div.track-card div.artists a:hover,
+section.home-page div.favorites div.track-card div.artists a:hover {
+  font-size: 0.75rem;
+  color: #b3b3b3;
+}
+
+section.home-page div.favorites div.track-card div.artists {
+  align-self: flex-start;
+}
+section.home-page div.favorites div.track-card div.artists a::after {
+  content: ', ';
+}
+
+section.home-page div.favorites div.track-card div.artists a:last-child::after {
+  content: '';
+}
+
+section.home-page div.favorites div.track-card div.removeFav button {
   color: #1db954;
+  border: none;
+  background: none;
 }

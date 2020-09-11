@@ -140,7 +140,7 @@ async function fetchSeveralTracksByID(
   setToken
 ) {
   await axios
-    .get(`https://api.spotify.com/v1/tracks/${ids}?market=${country}`, {
+    .get(`https://api.spotify.com/v1/tracks/?ids=${ids}&market=${country}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((resp) => {
