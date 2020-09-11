@@ -25,7 +25,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            {token ? <Redirect to="/home" /> : <Login />}
+            {token ? <Redirect from="/" to="/home" /> : <Login />}
           </Route>
           <Route exact path="/auth" component={Auth} />
           <PrivateRoute exact path="/home" component={Home} />

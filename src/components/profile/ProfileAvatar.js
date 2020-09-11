@@ -20,7 +20,7 @@ const ProfileAvatar = (props) => {
 
   return (
     <div className="profile-avatar">
-      {userData && location.pathname !== '/' ? (
+      {userData && userData.images[0] && location.pathname !== '/' ? (
         <img
           style={{ height: '3rem' }}
           alt={userData.display_name}

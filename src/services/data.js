@@ -134,6 +134,28 @@ async function fetchTracksByAlbumID(id, country, setTracks, token, setToken) {
     });
 }
 
+async function fetchSeveralTracksByID(id, country, setTracks, token, setToken) {
+  await axios
+    .get(
+      `https://api.spotify.com/v1/albums/${id}/tracks?market=${country}&offset=0&limit=50`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+    .then((resp) => {
+      setTracks(resp.data);
+      return resp.data;
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        localStorage.setItem('token', '');
+        setToken('');
+        alert('Your session has expired');
+      }
+      console.log(err);
+    });
+}
+
 export {
   storeToken,
   fetchUserData,
@@ -142,4 +164,5 @@ export {
   fetchAlbumsByArtistID,
   fetchAlbumByID,
   fetchTracksByAlbumID,
+  fetchSeveralTracksByID,
 };
