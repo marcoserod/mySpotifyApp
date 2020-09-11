@@ -15,9 +15,7 @@ const Artist = (props) => {
   const { userData } = useContext(AuthContext);
 
   useEffect(() => {
-    debugger;
     token && fetchArtistByID(id, setArtist, token, setToken);
-    debugger;
     token &&
       fetchAlbumsByArtistID(id, userData.country, setAlbums, token, setToken);
   }, []);

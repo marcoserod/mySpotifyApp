@@ -10,6 +10,10 @@ const storeToken = (setToken, history) => {
   history.replace('/home');
 };
 
+const goHOme = () => {
+  window.location.pathname = '/';
+};
+
 // axios.interceptors.response.use((resp) => {
 //   if (resp.status === 401) {
 //     alert('explota todoooooo');
@@ -87,6 +91,7 @@ async function fetchAlbumsByArtistID(id, country, setAlbums, token, setToken) {
       if (err.response.status === 401) {
         localStorage.setItem('token', '');
         setToken('');
+        goHOme();
         alert('Your session has expired');
       }
       console.log(err);
@@ -107,6 +112,7 @@ async function fetchAlbumByID(id, setAlbum, token, setToken) {
         localStorage.setItem('token', '');
         setToken('');
         alert('Your session has expired');
+        goHOme();
       }
       console.log(err);
     });
@@ -129,19 +135,23 @@ async function fetchTracksByAlbumID(id, country, setTracks, token, setToken) {
         localStorage.setItem('token', '');
         setToken('');
         alert('Your session has expired');
+        goHOme();
       }
       console.log(err);
     });
 }
 
-async function fetchSeveralTracksByID(id, country, setTracks, token, setToken) {
+async function fetchSeveralTracksByID(
+  ids,
+  country,
+  setTracks,
+  token,
+  setToken
+) {
   await axios
-    .get(
-      `https://api.spotify.com/v1/albums/${id}/tracks?market=${country}&offset=0&limit=50`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    )
+    .get(`https://api.spotify.com/v1/tracks/${ids}?market=${country}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
     .then((resp) => {
       setTracks(resp.data);
       return resp.data;
@@ -151,6 +161,7 @@ async function fetchSeveralTracksByID(id, country, setTracks, token, setToken) {
         localStorage.setItem('token', '');
         setToken('');
         alert('Your session has expired');
+        goHOme();
       }
       console.log(err);
     });
