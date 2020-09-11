@@ -10,10 +10,16 @@ const storeToken = (setToken, history) => {
   history.replace('/home');
 };
 
-const goHOme = () => {
+const goRoot = () => {
   window.location.pathname = '/';
 };
 
+const logOut = (setToken) => {
+  localStorage.setItem('token', '');
+  setToken('');
+  alert('Your session has expired');
+  goRoot();
+};
 // axios.interceptors.response.use((resp) => {
 //   if (resp.status === 401) {
 //     alert('explota todoooooo');
@@ -33,9 +39,7 @@ async function fetchUserData(token, setUserData, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        alert('Your session has expired');
-        localStorage.setItem('token', '');
-        setToken('');
+        logOut(setToken);
       }
     });
 }
@@ -51,9 +55,7 @@ async function fetchArtists(artist, setResults, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        alert('Your session has expired');
-        localStorage.setItem('token', '');
-        setToken('');
+        logOut(setToken);
       }
       console.log(err);
     });
@@ -70,9 +72,7 @@ async function fetchArtistByID(id, setArtist, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        alert('Your session has expired');
-        localStorage.setItem('token', '');
-        setToken('');
+        logOut(setToken);
       }
       console.log(err);
     });
@@ -89,10 +89,7 @@ async function fetchAlbumsByArtistID(id, country, setAlbums, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        localStorage.setItem('token', '');
-        setToken('');
-        goHOme();
-        alert('Your session has expired');
+        logOut(setToken);
       }
       console.log(err);
     });
@@ -109,10 +106,7 @@ async function fetchAlbumByID(id, setAlbum, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        localStorage.setItem('token', '');
-        setToken('');
-        alert('Your session has expired');
-        goHOme();
+        logOut(setToken);
       }
       console.log(err);
     });
@@ -132,10 +126,7 @@ async function fetchTracksByAlbumID(id, country, setTracks, token, setToken) {
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        localStorage.setItem('token', '');
-        setToken('');
-        alert('Your session has expired');
-        goHOme();
+        logOut(setToken);
       }
       console.log(err);
     });
@@ -158,10 +149,7 @@ async function fetchSeveralTracksByID(
     })
     .catch((err) => {
       if (err.response.status === 401) {
-        localStorage.setItem('token', '');
-        setToken('');
-        alert('Your session has expired');
-        goHOme();
+        logOut(setToken);
       }
       console.log(err);
     });
