@@ -17,8 +17,8 @@ const goRoot = () => {
 const logOut = (setToken) => {
   localStorage.setItem('token', '');
   setToken('');
-  alert('Your session has expired');
   goRoot();
+  alert('Your session has expired');
 };
 // axios.interceptors.response.use((resp) => {
 //   if (resp.status === 401) {
@@ -164,4 +164,5 @@ export {
   fetchAlbumByID,
   fetchTracksByAlbumID,
   fetchSeveralTracksByID,
+  logOut,
 };

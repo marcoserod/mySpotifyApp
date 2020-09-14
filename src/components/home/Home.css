@@ -24,7 +24,8 @@ section.home-page h4 {
 
 section.home-page h2.favorites {
   color: #1db954;
-  padding: 2rem 0rem;
+  padding: 2rem 0rem 1rem;
+  margin: 0;
 }
 
 section.home-page div.favorites {
@@ -79,4 +80,10 @@ section.home-page div.favorites div.track-card div.removeFav button {
   color: #1db954;
   border: none;
   background: none;
+}
+
+@media screen and (max-width: 600px) {
+  section.home-page div.favorites {
+    justify-content: center;
+  }
 }

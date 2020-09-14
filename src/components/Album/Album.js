@@ -12,6 +12,8 @@ const Album = (props) => {
   const { token, setToken } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
   const albumID = useParams().album;
+  const allAudios = document.getElementsByTagName('audio');
+  console.log(allAudios);
 
   useEffect(() => {
     fetchAlbumByID(albumID, setAlbum, token, setToken);

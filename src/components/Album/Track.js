@@ -7,6 +7,7 @@ import { AuthContext } from '../../contexts/Auth.context';
 const Track = (props) => {
   const { favorites, setFavorites } = useContext(AuthContext);
   const i = props.i;
+  const audioPreview = new Audio(i.preview_url);
   const [favorite, setFavorite] = useState(
     favorites.some((el) => el === i.id) || false
   );
@@ -33,7 +34,7 @@ const Track = (props) => {
       tabIndex={0}
       className="track"
     >
-      <div className="track-number">{i.track_number}</div>
+      <div>{i.track_number}</div>
       <div className="track-name">{i.name}</div>
       <button
         role="gridcell"

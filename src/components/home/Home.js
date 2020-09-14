@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Search from '../search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../contexts/Auth.context';
-import { fetchSeveralTracksByID } from '../../services/data';
+import { fetchSeveralTracksByID, logOut } from '../../services/data';
 import { Link } from 'react-router-dom';
 
 const Home = (props) => {
@@ -16,13 +16,15 @@ const Home = (props) => {
   document.title = 'Spotisearch-ish';
 
   useEffect(() => {
-    fetchSeveralTracksByID(
-      favoritesCSL,
-      userData.country,
-      setTracks,
-      token,
-      setToken
-    );
+    if (token && favorites.length !== 0) {
+      fetchSeveralTracksByID(
+        favoritesCSL,
+        userData.country,
+        setTracks,
+        token,
+        setToken
+      );
+    }
   }, [favorites]);
 
   const removeFav = (id) => {
@@ -45,7 +47,6 @@ const Home = (props) => {
           in the following search box and enjoy!
         </h4>
         <Search />
-        {console.log(favorites)}
 
         <>
           {favorites.length !== 0 && <h2 className="favorites">Favorites</h2>}
@@ -72,6 +73,9 @@ const Home = (props) => {
                     style={{ width: '100%', position: 'absolute', bottom: '0' }}
                   >
                     <button
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Remove Favorite"
                       onClick={(e) => {
                         e.preventDefault();
                         removeFav(item.id);
