@@ -10,10 +10,11 @@ section.home-page h1 {
   padding: 2rem 0rem;
   font-family: 'Circular';
   color: white;
+  /* margin: 0; */
 }
 
 section.home-page h1 div#app-name {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #1db954;
 }
 

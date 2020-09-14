@@ -37,6 +37,10 @@ section.album-page div.next h1 {
 section.album-page div.tracks {
   padding: 1rem 0rem;
 }
+
+section.album-page div.tracks div.disc-number span {
+  width: calc(5% + 0.5rem);
+}
 section.album-page div.tracks div.track {
   padding: 1rem 0.25rem;
   display: flex;
@@ -52,20 +56,30 @@ section.album-page div.tracks div.track:hover {
 section.album-page div.tracks div.track div.track-number {
   width: 5%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 section.album-page div.tracks div.track div.track-name {
-  width: 90%;
+  width: 80%;
   padding: 0rem 0.5rem;
   word-wrap: break-word;
 }
 section.album-page div.tracks div.track button.favorite {
-  width: 5%;
+  width: 10%;
   border: none;
   background: none;
   color: inherit;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 0rem;
-  align-self: center;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  section.album-page div.tracks div.track div.track-number {
+    width: 10%;
+  }
+
+  section.album-page div.tracks div.disc-number span {
+    width: calc(10% + 0.5rem);
+  }
 }

@@ -13,7 +13,6 @@ const Album = (props) => {
   const { userData } = useContext(AuthContext);
   const albumID = useParams().album;
   const allAudios = document.getElementsByTagName('audio');
-  console.log(allAudios);
 
   useEffect(() => {
     fetchAlbumByID(albumID, setAlbum, token, setToken);
@@ -43,7 +42,14 @@ const Album = (props) => {
         </div>
         <Breadcrumb />
         <div className="tracks">
-          {tracks && tracks.items.map((i) => <Track key={i.id} i={i} />)}
+          {tracks &&
+            tracks.items.map((i, index, arr) => (
+              <Track
+                firstTrack={arr[index - 1]?.disc_number != i.disc_number}
+                key={i.id}
+                i={i}
+              />
+            ))}
         </div>
       </div>
     </section>

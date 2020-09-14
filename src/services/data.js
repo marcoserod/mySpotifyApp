@@ -16,9 +16,8 @@ const goRoot = () => {
 
 const logOut = (setToken) => {
   localStorage.setItem('token', '');
-  setToken('');
-  goRoot();
-  alert('Your session has expired');
+  window.location.reload();
+  // goRoot();
 };
 // axios.interceptors.response.use((resp) => {
 //   if (resp.status === 401) {
