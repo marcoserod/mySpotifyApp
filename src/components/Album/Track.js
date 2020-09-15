@@ -43,7 +43,6 @@ const Track = (props) => {
         setPlaying(true);
         audio.addEventListener('ended', () => setPlaying(false));
       } else {
-        setPlaying(false);
         audio.pause();
       }
     }
@@ -89,43 +88,42 @@ const Track = (props) => {
         className="track"
       >
         <div className="track-number">
-          {!showPLay ? (
-            i.track_number
-          ) : (
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                if (audio ? audio.paused : audioPreview.paused) {
-                  if (audio && audio.src === audioPreview.src) {
-                    audio.play();
-                  } else {
-                    setAudio(audioPreview);
-                  }
+          {!showPLay && <span>{i.track_number}</span>}
+          <button
+            onFocusCapture={() => {
+              setShowPlay(true);
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              if (audio ? audio.paused : audioPreview.paused) {
+                setPlaying(true);
+                if (audio && audio.src === audioPreview.src) {
+                  audio.play();
                 } else {
-                  setPlaying(false);
-                  audio.pause();
-                  if (audio.src !== audioPreview.src) {
-                    setAudio(audioPreview);
-                  }
+                  setAudio(audioPreview);
                 }
-              }}
+              } else {
+                setPlaying(false);
+                audio.pause();
+                if (audio.src !== audioPreview.src) {
+                  setAudio(audioPreview);
+                }
+              }
+            }}
+            style={!showPLay ? { opacity: '0' } : { visibility: '1' }}
+            className="play-pause-btn"
+          >
+            <FontAwesomeIcon
               style={{
-                border: 'none',
-                background: 'none',
-                padding: '0',
+                fontSize: '1.5rem',
               }}
-            >
-              <FontAwesomeIcon
-                style={{
-                  fontSize: '1.5rem',
-                }}
-                color="#1EB954"
-                icon={!playing ? faPlayCircle : faPauseCircle}
-              />
-            </button>
-          )}
+              color="#1EB954"
+              icon={!playing ? faPlayCircle : faPauseCircle}
+            />
+          </button>
         </div>
         <div className="track-name">{i.name}</div>
+
         <button
           role="gridcell"
           aria-colindex={3}

@@ -74,6 +74,13 @@ section.album-page div.tracks div.track button.favorite {
   margin-left: auto;
 }
 
+button.play-pause-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-right: 100%;
+}
+
 @media screen and (max-width: 600px) {
   section.album-page div.tracks div.track div.track-number {
     width: 10%;
