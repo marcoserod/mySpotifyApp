@@ -37,14 +37,19 @@ const Track = (props) => {
 
   useEffect(() => {
     setPlaying(false);
+    setShowPlay(false);
     if (audio && audio.src === audioPreview.src) {
       if (audio.paused) {
         audio.play();
         setPlaying(true);
+        setShowPlay(true);
         audio.addEventListener('ended', () => setPlaying(false));
       } else {
         audio.pause();
       }
+      return () => {
+        audio.removeEventListener('ended', () => setPlaying(false));
+      };
     }
   }, [audio]);
 
