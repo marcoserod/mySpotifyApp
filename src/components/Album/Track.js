@@ -127,22 +127,32 @@ const Track = (props) => {
             />
           </button>
         </div>
-        <div className="track-name">{i.name}</div>
-
-        <button
-          role="gridcell"
-          aria-colindex={3}
-          onClick={(e) => {
-            handleFavorite(e, i.id);
-          }}
-          className="favorite"
-          title={favorite ? 'Remove Favorite' : 'Add Favorite'}
-        >
-          <FontAwesomeIcon
-            color={favorite ? `#1db954` : 'white'}
-            icon={favorite ? faHeart : heart}
-          />
-        </button>
+        <div className="track-name">
+          <p
+            style={{
+              margin: '0',
+            }}
+            className={playing && 'playing'}
+          >
+            {i.name}
+          </p>
+        </div>
+        <div className="favorite">
+          <button
+            role="gridcell"
+            aria-colindex={3}
+            onClick={(e) => {
+              handleFavorite(e, i.id);
+            }}
+            className="favorite"
+            title={favorite ? 'Remove Favorite' : 'Add Favorite'}
+          >
+            <FontAwesomeIcon
+              color={favorite ? `#1db954` : 'white'}
+              icon={favorite ? faHeart : heart}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

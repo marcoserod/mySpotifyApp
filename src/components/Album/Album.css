@@ -47,9 +47,12 @@ section.album-page div.tracks div.track {
   width: 100%;
 }
 
-section.album-page div.tracks div.track:focus,
+section.album-page div.tracks div.track:focus-within {
+  background-color: #5c5c5c;
+  border-radius: 4px;
+}
 section.album-page div.tracks div.track:hover {
-  background-color: #333333;
+  background-color: #2a2a2a;
   border-radius: 4px;
 }
 
@@ -63,7 +66,7 @@ section.album-page div.tracks div.track div.track-name {
   padding: 0rem 0.5rem;
   word-wrap: break-word;
 }
-section.album-page div.tracks div.track button.favorite {
+section.album-page div.tracks div.track div.favorite {
   width: 10%;
   border: none;
   background: none;
@@ -74,11 +77,40 @@ section.album-page div.tracks div.track button.favorite {
   margin-left: auto;
 }
 
+section.album-page div.tracks div.track div.favorite button.favorite {
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0rem;
+  margin-left: auto;
+}
+
 button.play-pause-btn {
   border: none;
   background: none;
   padding: 0;
   margin-right: 100%;
+}
+
+p.playing {
+  background: linear-gradient(
+    to right,
+    #fff 20%,
+    #1db954 40%,
+    #1db954 60%,
+    #fff 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 2s linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 @media screen and (max-width: 600px) {
