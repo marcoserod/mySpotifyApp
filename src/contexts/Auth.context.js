@@ -10,6 +10,7 @@ export const AuthProvider = (props) => {
   const [token, setToken] = useState(storageToken || '');
   const [userData, setUserData] = useState(storageUser || null);
   const [favorites, setFavorites] = useState(storageFav || []);
+  const [audio, setAudio] = useState(null);
 
   return (
     <AuthContext.Provider
@@ -20,6 +21,8 @@ export const AuthProvider = (props) => {
         setUserData,
         favorites,
         setFavorites,
+        audio,
+        setAudio,
       }}
     >
       {props.children}
