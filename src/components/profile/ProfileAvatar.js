@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/Auth.context';
 import { fetchUserData } from '../../services/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

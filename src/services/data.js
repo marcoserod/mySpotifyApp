@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/Auth.context';
+
 const queryString = require('query-string');
 
 const storeToken = (setToken, history) => {
@@ -8,10 +7,6 @@ const storeToken = (setToken, history) => {
   setToken(token);
   localStorage.setItem('token', token);
   history.replace('/home');
-};
-
-const goRoot = () => {
-  window.location.pathname = '/';
 };
 
 const logOut = (setToken) => {

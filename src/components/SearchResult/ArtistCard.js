@@ -8,6 +8,7 @@ const ArtistCard = (props) => {
       <Link to={`/artists/${props.i.id}`}>
         {props.i.images[0] ? (
           <img
+            alt={props.i.name}
             className="card-img-top rounded-circle"
             src={props.i.images[0].url}
           />

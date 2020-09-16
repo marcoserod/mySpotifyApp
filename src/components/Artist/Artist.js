@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import ArtistCard from '../SearchResult/ArtistCard';
 import { fetchArtistByID, fetchAlbumsByArtistID } from '../../services/data';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth.context';

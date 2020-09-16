@@ -12,16 +12,16 @@ const Album = (props) => {
   const { token, setToken } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
   const albumID = useParams().album;
-  const { audio, setAudio } = useContext(AuthContext);
+  const { audio } = useContext(AuthContext);
 
   useEffect(() => {
     fetchAlbumByID(albumID, setAlbum, token, setToken);
     fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
 
     return () => {
-      setAudio(null);
+      audio && audio.pause();
     };
-  }, [albumID]);
+  }, [albumID, audio]);
 
   return (
     <section className="container-fluid album-page">
@@ -49,7 +49,7 @@ const Album = (props) => {
           {tracks &&
             tracks.items.map((i, index, arr) => (
               <Track
-                firstTrack={arr[index - 1]?.disc_number != i.disc_number}
+                firstTrack={arr[index - 1]?.disc_number !== i.disc_number}
                 key={i.id}
                 i={i}
               />

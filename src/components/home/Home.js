@@ -1,12 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Search from '../search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHeart,
-  faPlayCircle,
-  faCircle,
-  faPlay,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../contexts/Auth.context';
 import { fetchSeveralTracksByID, logOut } from '../../services/data';
 import { Link, useHistory } from 'react-router-dom';
@@ -63,8 +58,9 @@ const Home = (props) => {
           {favorites.length !== 0 && <h2 className="favorites">Favorites</h2>}
           {favorites.length !== 0 && tracks && (
             <div className="favorites">
-              {tracks.tracks.map((item) => (
+              {tracks.tracks.map((item, index) => (
                 <div
+                  key={index}
                   className="track-card"
                   style={{
                     position: 'relative',
@@ -108,7 +104,9 @@ const Home = (props) => {
                   <p className="track-name">{item.name}</p>
                   <div className="artists">
                     {item.artists.map((item) => (
-                      <Link to={`/artists/${item.id}`}>{item.name}</Link>
+                      <Link key={item.id} to={`/artists/${item.id}`}>
+                        {item.name}
+                      </Link>
                     ))}
                   </div>
                   <div

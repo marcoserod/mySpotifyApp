@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -51,10 +51,6 @@ const Track = (props) => {
         audio.removeEventListener('ended', () => setPlaying(false));
       };
     }
-
-    return () => {
-      audio && audio.pause();
-    };
   }, [audio]);
 
   return (
@@ -102,7 +98,6 @@ const Track = (props) => {
             autoFocus={audio && audio.src === audioPreview.src}
             disabled={!audioPreview.src.includes('mp3-preview')}
             onClick={(e) => {
-              console.log(audioPreview.src.split('/'));
               e.preventDefault();
               if (audio ? audio.paused : audioPreview.paused) {
                 setPlaying(true);
@@ -119,7 +114,7 @@ const Track = (props) => {
                 }
               }
             }}
-            style={!showPLay ? { opacity: '0' } : { visibility: '1' }}
+            style={!showPLay ? { opacity: '0' } : { opacity: '1' }}
             className="play-pause-btn"
           >
             <FontAwesomeIcon
@@ -135,7 +130,7 @@ const Track = (props) => {
             style={{
               margin: '0',
             }}
-            className={playing && 'playing'}
+            className={playing ? 'playing' : ''}
           >
             {i.name}
           </p>
