@@ -86,10 +86,15 @@ section.album-page div.tracks div.track div.favorite button.favorite {
 }
 
 button.play-pause-btn {
+  color: #1db954;
   border: none;
   background: none;
   padding: 0;
   margin-right: 100%;
+}
+
+button.play-pause-btn:disabled {
+  color: #1db95450;
 }
 
 p.playing {

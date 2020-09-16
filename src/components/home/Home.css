@@ -83,6 +83,20 @@ section.home-page div.favorites div.track-card div.removeFav button {
   background: none;
 }
 
+button.homePlayBtn {
+  opacity: 0;
+  margin: 50px 50px;
+}
+
+button.homePlayBtn:hover,
+button.homePlayBtn:focus {
+  opacity: 1;
+}
+
+.iconBgColor {
+  background-color: white;
+}
+
 @media screen and (max-width: 600px) {
   section.home-page div.favorites {
     justify-content: center;

@@ -1,18 +1,29 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Search from '../search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHeart,
+  faPlayCircle,
+  faCircle,
+  faPlay,
+} from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../contexts/Auth.context';
 import { fetchSeveralTracksByID, logOut } from '../../services/data';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Home = (props) => {
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [tracks, setTracks] = useState(null);
-  const { favorites, userData, token, setToken, setFavorites } = useContext(
-    AuthContext
-  );
+  const {
+    setAudio,
+    favorites,
+    userData,
+    token,
+    setToken,
+    setFavorites,
+  } = useContext(AuthContext);
   const favoritesCSL = favorites.join();
+  const history = useHistory();
+
   document.title = 'Spotisearch-ish';
 
   useEffect(() => {
@@ -56,13 +67,45 @@ const Home = (props) => {
                 <div
                   className="track-card"
                   style={{
+                    position: 'relative',
                     margin: '1rem 0.25rem',
                   }}
                 >
                   {item.album.images[1] ? (
                     <img src={item.album.images[1].url} />
                   ) : null}
-                  <p className="track-name"> {item.name}</p>
+                  <button
+                    onClick={() => {
+                      setAudio(new Audio(item.preview_url));
+                      history.push(
+                        `/artists/${item.artists[0].id}/${item.album.id}`
+                      );
+                    }}
+                    className="homePlayBtn"
+                    style={{
+                      display: 'flex',
+                      alignContent: 'center',
+                      justifyContent: 'center',
+                      height: '2rem',
+                      width: '2rem',
+                      position: 'absolute',
+                      top: 0,
+                      border: 'none',
+                      background: 'transparent',
+                      padding: '50%',
+                      margin: 0,
+                    }}
+                  >
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        color=" #1db954"
+                        size="3x"
+                        icon={faPlay}
+                        transform={'white'}
+                      ></FontAwesomeIcon>
+                    </div>
+                  </button>
+                  <p className="track-name">{item.name}</p>
                   <div className="artists">
                     {item.artists.map((item) => (
                       <Link to={`/artists/${item.id}`}>{item.name}</Link>

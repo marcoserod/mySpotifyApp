@@ -12,11 +12,15 @@ const Album = (props) => {
   const { token, setToken } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
   const albumID = useParams().album;
-  const allAudios = document.getElementsByTagName('audio');
+  const { audio, setAudio } = useContext(AuthContext);
 
   useEffect(() => {
     fetchAlbumByID(albumID, setAlbum, token, setToken);
     fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
+
+    return () => {
+      setAudio(null);
+    };
   }, [albumID]);
 
   return (

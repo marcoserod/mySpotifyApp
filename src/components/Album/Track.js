@@ -51,6 +51,10 @@ const Track = (props) => {
         audio.removeEventListener('ended', () => setPlaying(false));
       };
     }
+
+    return () => {
+      audio && audio.pause();
+    };
   }, [audio]);
 
   return (
@@ -95,10 +99,10 @@ const Track = (props) => {
         <div className="track-number">
           {!showPLay && <span>{i.track_number}</span>}
           <button
-            onFocusCapture={() => {
-              setShowPlay(true);
-            }}
+            autoFocus={audio && audio.src === audioPreview.src}
+            disabled={!audioPreview.src.includes('mp3-preview')}
             onClick={(e) => {
+              console.log(audioPreview.src.split('/'));
               e.preventDefault();
               if (audio ? audio.paused : audioPreview.paused) {
                 setPlaying(true);
@@ -122,7 +126,6 @@ const Track = (props) => {
               style={{
                 fontSize: '1.5rem',
               }}
-              color="#1EB954"
               icon={!playing ? faPlayCircle : faPauseCircle}
             />
           </button>
