@@ -13,6 +13,19 @@
   src: url('../src/assets/fonts/CircularStdMedium.ttf');
 }
 
+ol.breadcrumb {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0rem 0rem 1rem;
+  border-bottom: 1px solid;
+  margin: 1rem 0rem 0rem;
+}
+
+ol.breadcrumb li.breadcrumb-item a.bc-sub-item {
+  color: white;
+  text-transform: capitalize;
+}
+
 body::-webkit-scrollbar {
   width: 0.6rem;
   background-color: #121212;

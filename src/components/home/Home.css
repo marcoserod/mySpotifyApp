@@ -48,6 +48,14 @@ section.home-page div.favorites div.track-card {
   background-color: #282828;
 }
 
+section.home-page div.favorites div.track-card:hover,
+section.home-page div.favorites div.track-card:focus {
+  background-color: #ffffff30;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 1);
+}
+
 section.home-page div.favorites div.track-card img {
   border-radius: 0.25rem;
   min-height: 150px;
