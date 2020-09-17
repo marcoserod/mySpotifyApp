@@ -35,32 +35,32 @@ const Album = (props) => {
   const styledSkeleton = (
     <p
       style={{
-        display: 'flex',
         width: '100%',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
       }}
     >
       <p style={{ width: '5%' }}>
-        <Skeleton duration={1} circle={true} height={32} width={32} />
+        <Skeleton duration={1} circle={true} height={20} width={20} />
       </p>
       <p style={{ width: '80%' }}>
         <Skeleton duration={1} />
       </p>
-      <p className="" style={{ width: '5%', flexDirection: 'row-reverse' }}>
-        <Skeleton duration={1} circle={true} height={32} width={32} />
+      <p style={{ width: '5%', textAlign: 'end' }}>
+        <Skeleton duration={1} circle={true} height={20} width={20} />
       </p>
     </p>
   );
 
-  useEffect(() => {
-    fetchAlbumByID(albumID, setAlbum, token, setToken);
-    fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
+  // useEffect(() => {
+  //   fetchAlbumByID(albumID, setAlbum, token, setToken);
+  //   fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
 
-    return () => {
-      audio && audio.pause();
-    };
-  }, [albumID, audio]);
+  //   return () => {
+  //     audio && audio.pause();
+  //   };
+  // }, [albumID, audio]);
 
   if (album && tracks) {
     return (
