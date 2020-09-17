@@ -33,7 +33,7 @@ const Album = (props) => {
     },
   ];
   const styledSkeleton = (
-    <p
+    <div
       style={{
         height: '60px',
         margin: '0',
@@ -52,7 +52,7 @@ const Album = (props) => {
       <p style={{ width: '5%', textAlign: 'end', margin: '0' }}>
         <Skeleton duration={1} circle={true} height={20} width={20} />
       </p>
-    </p>
+    </div>
   );
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const Album = (props) => {
               <Skeleton duration={1} height={32} />
             </p>
             <div className="tracks">
-              <p
+              <div
                 style={{
                   height: '60px',
                   margin: '0',
@@ -144,7 +144,7 @@ const Album = (props) => {
                   <Skeleton duration={1}>li</Skeleton>
                 </div>
                 <p style={{ width: '90%', margin: '0' }}></p>
-              </p>
+              </div>
               {styledSkeleton}
               {styledSkeleton}
               {styledSkeleton}

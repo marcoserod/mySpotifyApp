@@ -11,9 +11,9 @@ const Artist = (props) => {
   const id = useParams().id;
   const [artist, setArtist] = useState(null);
   const [albums, setAlbums] = useState(null);
-  const { token, setToken } = useContext(AuthContext);
+  const { token, setToken, lastSearch } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
-
+  const queryForLastSearch = lastSearch ? lastSearch : '';
   useEffect(() => {
     window.scrollTo(0, 0);
     token && fetchArtistByID(id, setArtist, token, setToken);
@@ -31,8 +31,8 @@ const Artist = (props) => {
       url: '/home',
     },
     {
-      name: 'artists',
-      url: '/artists',
+      name: 'Artists',
+      url: `/artists${queryForLastSearch}`,
     },
     {
       name: `${artist.name}`,

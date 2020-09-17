@@ -11,6 +11,7 @@ export const AuthProvider = (props) => {
   const [userData, setUserData] = useState(storageUser || null);
   const [favorites, setFavorites] = useState(storageFav || []);
   const [audio, setAudio] = useState(null);
+  const [lastSearch, setLastSearch] = useState(null);
 
   return (
     <AuthContext.Provider
@@ -23,6 +24,8 @@ export const AuthProvider = (props) => {
         setFavorites,
         audio,
         setAudio,
+        lastSearch,
+        setLastSearch,
       }}
     >
       {props.children}

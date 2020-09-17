@@ -5,6 +5,7 @@ import { faHeart, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../contexts/Auth.context';
 import { fetchSeveralTracksByID, logOut } from '../../services/data';
 import { Link, useHistory } from 'react-router-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const Home = (props) => {
   const [tracks, setTracks] = useState(null);
@@ -56,7 +57,7 @@ const Home = (props) => {
 
         <>
           {favorites.length !== 0 && <h2 className="favorites">Favorites</h2>}
-          {favorites.length !== 0 && tracks && (
+          {favorites.length !== 0 && tracks ? (
             <div className="favorites">
               {tracks.tracks.map((item, index) => (
                 <div
@@ -64,7 +65,6 @@ const Home = (props) => {
                   className="track-card"
                   style={{
                     position: 'relative',
-                    margin: '1rem 0.25rem',
                   }}
                 >
                   {item.album.images[1] ? (
@@ -128,6 +128,26 @@ const Home = (props) => {
                 </div>
               ))}
             </div>
+          ) : (
+            <SkeletonTheme color="transparent" highlightColor="#444">
+              <div className="favorites">
+                <p className="mt-3">
+                  <Skeleton width={190} height={266} duration={1} />
+                </p>
+                <p className="mt-3">
+                  <Skeleton width={190} height={266} duration={1} />
+                </p>
+                <p className="mt-3">
+                  <Skeleton width={190} height={266} duration={1} />
+                </p>
+                <p className="mt-3">
+                  <Skeleton width={190} height={266} duration={1} />
+                </p>
+                <p className="mt-3">
+                  <Skeleton width={190} height={266} duration={1} />
+                </p>
+              </div>
+            </SkeletonTheme>
           )}
         </>
       </div>

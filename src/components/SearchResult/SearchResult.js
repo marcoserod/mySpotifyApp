@@ -5,6 +5,7 @@ import { fetchArtists } from '../../services/data';
 import ArtistCard from './ArtistCard';
 import BTBreadcrumb from '../../helpers/BTBreadcrumb';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Artist from '../Artist/Artist';
 
 const queryString = require('query-string');
 
@@ -23,7 +24,7 @@ const SearchResult = (props) => {
   ];
   const styledSkeleton = (
     <div style={{ margin: '1rem 0rem' }}>
-      <Skeleton width={266} height={336} duration={1} />
+      <Skeleton width={236} height={300} duration={1} />
     </div>
   );
 

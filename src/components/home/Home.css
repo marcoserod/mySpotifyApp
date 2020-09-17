@@ -37,6 +37,7 @@ section.home-page div.favorites {
 
 section.home-page div.favorites div.track-card {
   position: relative;
+  margin: 1rem 0.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,5 +109,29 @@ button.homePlayBtn:focus {
 @media screen and (max-width: 600px) {
   section.home-page div.favorites {
     justify-content: center;
+  }
+  section.home-page div.favorites {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: scroll;
+  }
+  section.home-page div.favorites div.track-card {
+    margin-right: 0.5rem;
+    padding: 0rem 0rem 0rem;
+    width: 150px;
+    height: auto;
+  }
+  section.home-page div.favorites div.track-card img {
+    background: none;
+    box-shadow: none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  section.home-page div.favorites div.track-card p.track-name {
+    padding-left: 0.5rem;
+  }
+  section.home-page div.favorites div.track-card div.artists {
+    padding-left: 0.5rem;
   }
 }

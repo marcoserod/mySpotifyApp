@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useHistory, useLocation } from 'react-router-dom';
+import { AuthContext } from '../../contexts/Auth.context';
 
 const Search = (props) => {
   const [artistSearch, setArtistSearch] = useState('');
   const history = useHistory();
   const location = useLocation();
+  const { setLastSearch } = useContext(AuthContext);
 
   function handleSubmit(e, artistSearch) {
     const location = {
@@ -14,6 +16,7 @@ const Search = (props) => {
       search: `?q=${artistSearch}`,
     };
     e.preventDefault();
+    setLastSearch(`?q=${artistSearch}`);
     history.push(location);
   }
 
