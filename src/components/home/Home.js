@@ -19,7 +19,7 @@ const Home = (props) => {
   } = useContext(AuthContext);
   const favoritesCSL = favorites.join();
   const history = useHistory();
-
+  const smallDeviceOnLoad = window.innerWidth > 600 ? 190 : 150;
   document.title = 'Spotisearch-ish';
 
   useEffect(() => {
@@ -129,25 +129,54 @@ const Home = (props) => {
               ))}
             </div>
           ) : (
-            <SkeletonTheme color="transparent" highlightColor="#444">
-              <div className="favorites">
-                <p className="mt-3">
-                  <Skeleton width={190} height={266} duration={1} />
-                </p>
-                <p className="mt-3">
-                  <Skeleton width={190} height={266} duration={1} />
-                </p>
-                <p className="mt-3">
-                  <Skeleton width={190} height={266} duration={1} />
-                </p>
-                <p className="mt-3">
-                  <Skeleton width={190} height={266} duration={1} />
-                </p>
-                <p className="mt-3">
-                  <Skeleton width={190} height={266} duration={1} />
-                </p>
-              </div>
-            </SkeletonTheme>
+            favorites.length !== 0 && (
+              <SkeletonTheme color="transparent" highlightColor="#444">
+                <div className="favorites">
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                  <p className="mt-3 mr-3">
+                    <Skeleton
+                      width={smallDeviceOnLoad}
+                      height={266}
+                      duration={1}
+                    />
+                  </p>
+                </div>
+              </SkeletonTheme>
+            )
           )}
         </>
       </div>

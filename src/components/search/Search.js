@@ -16,7 +16,7 @@ const Search = (props) => {
       search: `?q=${artistSearch}`,
     };
     e.preventDefault();
-    setLastSearch(`?q=${artistSearch}`);
+    setLastSearch(artistSearch);
     history.push(location);
   }
 

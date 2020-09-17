@@ -22,7 +22,7 @@ const Album = (props) => {
     },
     {
       name: 'artists',
-      url: '/artists',
+      url: `/artists`,
     },
     {
       name: `${album.artists[0].name}`,

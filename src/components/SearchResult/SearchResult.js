@@ -5,13 +5,12 @@ import { fetchArtists } from '../../services/data';
 import ArtistCard from './ArtistCard';
 import BTBreadcrumb from '../../helpers/BTBreadcrumb';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import Artist from '../Artist/Artist';
 
 const queryString = require('query-string');
 
 const SearchResult = (props) => {
   const [results, setResults] = useState(null);
-  const { token, setToken } = useContext(AuthContext);
+  const { token, setToken, lastSearch } = useContext(AuthContext);
   const artist = queryString.parse(window.location.search).q;
   const path = [
     {
@@ -29,7 +28,8 @@ const SearchResult = (props) => {
   );
 
   useEffect(() => {
-    artist && fetchArtists(artist, setResults, token, setToken);
+    (artist || lastSearch) &&
+      fetchArtists(artist ? artist : lastSearch, setResults, token, setToken);
   }, [artist]);
 
   document.title = 'Spotisearch-ish - Search';
@@ -40,10 +40,9 @@ const SearchResult = (props) => {
         <div className="container">
           <h1>Artists</h1>
           <p>
-            You are currently searching:
             {artist
-              ? `"${artist}"`
-              : ` Nothing, go ahead and search something below ⬇`}
+              ? ` You are currently searching: "${artist}"`
+              : ` Your last search was: "${lastSearch}"`}
           </p>
           <Search />
           <BTBreadcrumb arr={path} />

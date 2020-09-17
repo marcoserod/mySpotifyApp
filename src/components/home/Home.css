@@ -107,6 +107,30 @@ button.homePlayBtn:focus {
 }
 
 @media screen and (max-width: 600px) {
+  section.home-page h1 {
+    font-size: 1rem;
+    padding: 2rem 0rem;
+    font-family: 'Circular';
+    color: white;
+    margin: 0;
+  }
+  section.home-page h1 div#app-name {
+    font-size: 2rem;
+    color: #1db954;
+  }
+
+  section.home-page h4 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  section.home-page h2.favorites {
+    color: #1db954;
+    padding: 2rem 0rem 1rem;
+    margin: 0;
+    font-size: 2rem;
+  }
+
   section.home-page div.favorites {
     justify-content: center;
   }
@@ -115,6 +139,7 @@ button.homePlayBtn:focus {
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow-x: scroll;
+    padding-bottom: 1rem;
   }
   section.home-page div.favorites div.track-card {
     margin-right: 0.5rem;
