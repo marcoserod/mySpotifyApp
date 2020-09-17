@@ -35,19 +35,21 @@ const Album = (props) => {
   const styledSkeleton = (
     <p
       style={{
+        height: '60px',
+        margin: '0',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
       }}
     >
-      <p style={{ width: '5%' }}>
+      <p style={{ width: '5%', margin: '0' }}>
         <Skeleton duration={1} circle={true} height={20} width={20} />
       </p>
-      <p style={{ width: '80%' }}>
+      <p style={{ width: '80%', margin: '0' }}>
         <Skeleton duration={1} />
       </p>
-      <p style={{ width: '5%', textAlign: 'end' }}>
+      <p style={{ width: '5%', textAlign: 'end', margin: '0' }}>
         <Skeleton duration={1} circle={true} height={20} width={20} />
       </p>
     </p>
@@ -121,10 +123,28 @@ const Album = (props) => {
                 </p>
               </div>
             </div>
-            <p className="mt-3">
+            <p className="mt-3 mb-0">
               <Skeleton duration={1} height={32} />
             </p>
             <div className="tracks">
+              <p
+                style={{
+                  height: '60px',
+                  margin: '0',
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space',
+                }}
+              >
+                <p style={{ width: '10%', margin: '0' }}>
+                  <Skeleton duration={1} circle={true} height={20} width={20} />
+                </p>
+                <div style={{ width: '10%', margin: '0' }}>
+                  <Skeleton duration={1}>li</Skeleton>
+                </div>
+                <p style={{ width: '90%', margin: '0' }}></p>
+              </p>
               {styledSkeleton}
               {styledSkeleton}
               {styledSkeleton}

@@ -40,6 +40,7 @@ const Artist = (props) => {
   ];
   const styledSkeleton = (
     <p
+      className="mt-3"
       style={
         window.innerWidth > 600
           ? {
@@ -102,7 +103,7 @@ const Artist = (props) => {
                 </p>
               </div>
             </div>
-            <p className="mt-3">
+            <p className="mt-3 mb-0">
               <Skeleton duration={1} height={32} />
             </p>
             <div className="albums">

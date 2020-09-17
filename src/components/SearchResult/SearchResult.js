@@ -2,9 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Search from '../search/Search';
 import { AuthContext } from '../../contexts/Auth.context';
 import { fetchArtists } from '../../services/data';
-import artistPlaceholder from '../../assets/artistPlaceholder.svg';
 import ArtistCard from './ArtistCard';
-import Breadcrumbs from '../../helpers/Breadcrumb';
 import BTBreadcrumb from '../../helpers/BTBreadcrumb';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
