@@ -53,14 +53,14 @@ const Album = (props) => {
     </p>
   );
 
-  // useEffect(() => {
-  //   fetchAlbumByID(albumID, setAlbum, token, setToken);
-  //   fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
+  useEffect(() => {
+    fetchAlbumByID(albumID, setAlbum, token, setToken);
+    fetchTracksByAlbumID(albumID, userData.country, setTracks, token, setToken);
 
-  //   return () => {
-  //     audio && audio.pause();
-  //   };
-  // }, [albumID, audio]);
+    return () => {
+      audio && audio.pause();
+    };
+  }, [albumID, audio]);
 
   if (album && tracks) {
     return (
