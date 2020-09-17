@@ -110,8 +110,8 @@ const Home = (props) => {
                     ))}
                   </div>
                   <div
-                    className="removeFav d-flex justify-content-end"
-                    style={{ width: '100%', position: 'absolute', bottom: '0' }}
+                    className="removeFav"
+                    style={{ position: 'absolute', bottom: '0', right: '0' }}
                   >
                     <button
                       data-toggle="tooltip"

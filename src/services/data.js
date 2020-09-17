@@ -12,14 +12,7 @@ const storeToken = (setToken, history) => {
 const logOut = (setToken) => {
   localStorage.setItem('token', '');
   window.location.reload();
-  // goRoot();
 };
-// axios.interceptors.response.use((resp) => {
-//   if (resp.status === 401) {
-//     alert('explota todoooooo');
-//   }
-//   return resp.status;
-// });
 
 async function fetchUserData(token, setUserData, setToken) {
   await axios
@@ -35,6 +28,7 @@ async function fetchUserData(token, setUserData, setToken) {
       if (err.response.status === 401) {
         logOut(setToken);
       }
+      console.log(err);
     });
 }
 

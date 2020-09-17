@@ -60,9 +60,10 @@ const SearchResult = (props) => {
           <div className="container">
             <h1>Artists</h1>
             <p>
-              You are currently searching:
               {artist
-                ? `"${artist}"`
+                ? `You are currently searching: "${artist}"`
+                : lastSearch
+                ? ` Your last search was: "${lastSearch}"`
                 : ` Nothing, go ahead and search something below ⬇`}
             </p>
             <Search />
