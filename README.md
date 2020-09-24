@@ -1,8 +1,8 @@
 # Spotisearch-ish
 
-Web application that consumes [Spotify API](https://developer.spotify.com/documentation/web-api/)
+Web application that consumes [Spotify API](https://developer.spotify.com/documentation/web-api/) built in React JS
 
-You can try out from here:
+You can try it out from here:
 
 [SPOTISEARCH-ISH](https://spotisearch-marcoserod.netlify.app/)
 
