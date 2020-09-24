@@ -1,4 +1,4 @@
-#Spotisearch-ish
+# Spotisearch-ish
 
 Web application that consumes [Spotify API](https://developer.spotify.com/documentation/web-api/)
 
@@ -6,7 +6,7 @@ You can try out from here:
 
 [SPOTISEARCH-ISH](https://spotisearch-marcoserod.netlify.app/)
 
-##Features:
+## Features:
 
 - Search by Artist Name
 - Choose among Artist's albums
