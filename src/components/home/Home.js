@@ -132,48 +132,15 @@ const Home = (props) => {
             favorites.length !== 0 && (
               <SkeletonTheme color="transparent" highlightColor="#444">
                 <div className="favorites">
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
-                  <p className="mt-3 mr-3">
-                    <Skeleton
-                      width={smallDeviceOnLoad}
-                      height={266}
-                      duration={1}
-                    />
-                  </p>
+                  {Array.from({ length: 8 }).map(() => (
+                    <p className="mt-3 mr-3">
+                      <Skeleton
+                        width={smallDeviceOnLoad}
+                        height={266}
+                        duration={1}
+                      />
+                    </p>
+                  ))}
                 </div>
               </SkeletonTheme>
             )

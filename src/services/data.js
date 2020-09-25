@@ -32,13 +32,25 @@ async function fetchUserData(token, setUserData, setToken) {
     });
 }
 
-async function fetchArtists(artist, setResults, token, setToken) {
+async function fetchArtists(
+  artist,
+  offset,
+  concatResults,
+  token,
+  setToken,
+  results,
+  setOffset
+) {
+  results = results || null;
   await axios
-    .get(`https://api.spotify.com/v1/search?q=${artist}&type=artist`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    .get(
+      `https://api.spotify.com/v1/search?q=${artist}&type=artist&offset=${offset}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
     .then((resp) => {
-      setResults(resp.data);
+      concatResults({ list: resp.data.artists.items }, results);
       return resp.data;
     })
     .catch((err) => {

@@ -13,8 +13,9 @@ const Artist = (props) => {
   const [albums, setAlbums] = useState(null);
   const { token, setToken } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll(0, 0);
     token && fetchArtistByID(id, setArtist, token, setToken);
     token &&
       fetchAlbumsByArtistID(id, userData.country, setAlbums, token, setToken);
@@ -106,14 +107,7 @@ const Artist = (props) => {
               <Skeleton duration={1} height={32} />
             </p>
             <div className="albums">
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
+              {Array.from({ length: 8 }).map(() => styledSkeleton)}
             </div>
           </div>
         </section>

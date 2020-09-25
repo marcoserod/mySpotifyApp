@@ -2,19 +2,19 @@ import React from 'react';
 import { artistFallBack } from '../../assets/artistFallback.js';
 import { Link } from 'react-router-dom';
 
-const ArtistCard = (props) => {
+const ArtistCard = ({ item }) => {
   return (
     <div className="card artist-card text-white">
-      <Link to={`/artists/${props.i.id}`}>
+      <Link to={`/artists/${item.id}`}>
         <div className="artistFallBack">
-          {props.i.images[0] ? (
-            <img alt={props.i.name} className="" src={props.i.images[0].url} />
+          {item && item.images[1] ? (
+            <img alt={item.name} className="" src={item.images[1].url} />
           ) : (
             artistFallBack
           )}
         </div>
         <div className="card-body">
-          <p className="card-text">{props.i.name}</p>
+          <p className="card-text">{item.name}</p>
         </div>
       </Link>
     </div>

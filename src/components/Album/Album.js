@@ -145,15 +145,7 @@ const Album = (props) => {
                 </div>
                 <p style={{ width: '90%', margin: '0' }}></p>
               </div>
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
-              {styledSkeleton}
+              {Array.from({ length: 8 }).map(() => styledSkeleton)}
             </div>
           </div>
         </section>

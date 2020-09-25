@@ -9,7 +9,8 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 const queryString = require('query-string');
 
 const SearchResult = (props) => {
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState({ list: [] });
+  const [offset, setOffset] = useState(0);
   const { token, setToken, lastSearch } = useContext(AuthContext);
   const artist = queryString.parse(window.location.search).q;
   const path = [
@@ -21,20 +22,55 @@ const SearchResult = (props) => {
       name: 'Artists',
     },
   ];
+
+  const concatResults = (obj, res) => {
+    console.log(res.list);
+    setResults({ list: res.list.concat(obj.list) });
+  };
+
   const styledSkeleton = (
     <div style={{ margin: '1rem 0rem' }}>
       <Skeleton width={236} height={300} duration={1} />
     </div>
   );
 
+  const onScroll = () => {
+    const isBottom =
+      window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+    if (isBottom) {
+      setOffset(offset + 20);
+      fetchArtists(
+        artist,
+        offset + 20,
+        concatResults,
+        token,
+        setToken,
+        results
+      );
+    }
+  };
+
   useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [results]);
+
+  useEffect(() => {
+    console.log('tambien me ejecute yo');
     (artist || lastSearch) &&
-      fetchArtists(artist ? artist : lastSearch, setResults, token, setToken);
+      fetchArtists(
+        artist ? artist : lastSearch,
+        0,
+        setResults,
+        token,
+        setToken
+      );
+    setOffset(0);
   }, [artist]);
 
   document.title = 'Spotisearch-ish - Search';
 
-  if (results) {
+  if (results.list.length > 0) {
     return (
       <section className="container-fluid artist-search">
         <div className="container">
@@ -47,8 +83,9 @@ const SearchResult = (props) => {
           <Search />
           <BTBreadcrumb arr={path} />
           <div className="results">
-            {results &&
-              results.artists.items.map((i) => <ArtistCard key={i.id} i={i} />)}
+            {results.list.map((item) => (
+              <ArtistCard key={item.id} item={item} />
+            ))}
           </div>
         </div>
       </section>
@@ -70,15 +107,7 @@ const SearchResult = (props) => {
             <BTBreadcrumb arr={path} />
             {artist && (
               <div className="results">
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
-                {styledSkeleton}
+                {Array.from({ length: 8 }).map(() => styledSkeleton)}
               </div>
             )}
           </div>
