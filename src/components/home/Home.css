@@ -90,6 +90,7 @@ section.home-page div.favorites div.track-card div.removeFav button {
   color: #1db954;
   border: none;
   background: none;
+  padding: 0.5rem;
 }
 
 button.homePlayBtn {
@@ -160,7 +161,7 @@ button.homePlayBtn:focus {
     border-radius: 1rem;
   }
   section.home-page div.favorites div.track-card {
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     padding: 0rem 0rem 0rem;
     width: 150px;
     height: auto;

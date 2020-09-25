@@ -83,8 +83,8 @@ const SearchResult = (props) => {
           <Search />
           <BTBreadcrumb arr={path} />
           <div className="results">
-            {results.list.map((item) => (
-              <ArtistCard key={item.id} item={item} />
+            {results.list.map((item, index) => (
+              <ArtistCard key={index} item={item} />
             ))}
           </div>
         </div>

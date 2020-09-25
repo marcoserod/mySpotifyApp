@@ -28,12 +28,6 @@ section.album-page div.next h1 {
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 600px) {
-  section.album-page div.next h1 {
-    font-size: 1rem;
-  }
-}
-
 section.album-page div.tracks {
   padding: 1rem 0rem;
 }
@@ -42,8 +36,9 @@ section.album-page div.tracks div.disc-number span {
   width: calc(5% + 0.5rem);
 }
 section.album-page div.tracks div.track {
-  padding: 1rem 0.25rem;
+  padding: 0.5rem 0.25rem;
   display: flex;
+  align-items: center;
   width: 100%;
 }
 
@@ -61,9 +56,13 @@ section.album-page div.tracks div.track div.track-number {
   display: flex;
   justify-content: flex-start;
 }
+section.album-page div.tracks div.track div.track-number span {
+  display: inline-flex;
+  align-self: center;
+}
 section.album-page div.tracks div.track div.track-name {
   width: 80%;
-  padding: 0rem 0.5rem;
+  padding: 0.75rem;
   word-wrap: break-word;
 }
 section.album-page div.tracks div.track div.favorite {
@@ -81,7 +80,7 @@ section.album-page div.tracks div.track div.favorite button.favorite {
   border: none;
   background: none;
   color: inherit;
-  padding: 0rem;
+  padding: 0.5rem;
   margin-left: auto;
 }
 
@@ -89,7 +88,7 @@ button.play-pause-btn {
   color: #1db954;
   border: none;
   background: none;
-  padding: 0;
+  padding: 0.5rem;
   margin-right: 100%;
 }
 
@@ -120,11 +119,15 @@ p.playing {
 }
 
 @media screen and (max-width: 600px) {
+  section.album-page div.next h1 {
+    font-size: 1rem;
+  }
+
   section.album-page div.tracks div.track div.track-number {
     width: 10%;
   }
 
   section.album-page div.tracks div.disc-number span {
-    width: calc(10% + 0.5rem);
+    width: calc(10% + 0.75rem);
   }
 }

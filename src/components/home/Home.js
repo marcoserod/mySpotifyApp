@@ -80,7 +80,7 @@ const Home = (props) => {
                     className="homePlayBtn"
                     style={{
                       display: 'flex',
-                      alignContent: 'center',
+                      alignItems: 'center',
                       justifyContent: 'center',
                       height: '2rem',
                       width: '2rem',
